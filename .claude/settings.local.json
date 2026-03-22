@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc:*)",
+      "Bash(find /Users/pxheller/Development/code-agenten.ch/template/src/main -name \"*.html\" -exec grep -l \"header\\\\|nav\" {})",
+      "Bash(grep -E \"\\\\.js$\")",
+      "Bash(npm install:*)",
+      "Bash(mkdir -p /Users/pxheller/Development/code-agenten.ch2/site)",
+      "Bash(cp -R /Users/pxheller/Development/code-agenten.ch2/template/src/assets /Users/pxheller/Development/code-agenten.ch2/site/)",
+      "Bash(cp /Users/pxheller/Development/code-agenten.ch2/template/src/favicon.ico /Users/pxheller/Development/code-agenten.ch2/site/)",
+      "Bash(cp /Users/pxheller/Development/code-agenten.ch2/template/package.json /Users/pxheller/Development/code-agenten.ch2/site/)",
+      "Bash(cp /Users/pxheller/Development/code-agenten.ch2/template/vite.config.js /Users/pxheller/Development/code-agenten.ch2/site/)",
+      "Bash(ls /Users/pxheller/Development/code-agenten.ch2/site/assets/css/fonts*)",
+      "Bash(ls /Users/pxheller/Development/code-agenten.ch2/template/src/assets/css/fonts*)"
+    ]
+  }
+}

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>code-agenten.ch – Souveräne AI Coding Agents für Schweizer Unternehmen</title>
+        <meta name="description" content="Souveräne AI Coding Agents für Schweizer Unternehmen. DSG-konform, gehostet in der Schweiz. Maximieren Sie den Output Ihres Entwicklungs-Teams.">
+        <meta name="keywords" content="AI Coding, Vibe Coding, Schweiz, DSG-konform, nDSG, Coding Agents, OpenCode, Claude, GPT-4o, Enterprise">
+        <meta name="theme-color" content="#178d72">
+
+        <!-- Open Graph Tags -->
+        <meta property="og:locale" content="de_CH">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="code-agenten.ch – Souveräne AI Coding Agents">
+        <meta property="og:description" content="Souveräne AI Coding Agents für Schweizer Unternehmen. DSG-konform, gehostet in der Schweiz.">
+        <meta property="og:site_name" content="code-agenten.ch">
+
+        <!-- preload head styles -->
+        <link rel="preload" href="assets/css/unicons.min.css" as="style">
+        <link rel="preload" href="assets/css/swiper-bundle.min.css" as="style">
+        <link rel="preload" href="assets/css/magic-cursor.min.css" as="style">
+
+        <!-- preload footer scripts -->
+        <link rel="preload" href="assets/js/libs/jquery.min.js" as="script">
+        <link rel="preload" href="assets/js/libs/scrollmagic.min.js" as="script">
+        <link rel="preload" href="assets/js/libs/swiper-bundle.min.js" as="script">
+        <link rel="preload" href="assets/js/libs/anime.min.js" as="script">
+        <link rel="preload" href="assets/js/libs/typed.min.js" as="script">
+        <link rel="preload" href="assets/js/libs/tilt.min.js" as="script">
+        <link rel="preload" href="assets/js/libs/split-type.min.js" as="script">
+        <link rel="preload" href="assets/js/libs/prettify.min.js" as="script">
+        <link rel="preload" href="assets/js/libs/gsap.min.js" as="script">
+        <link rel="preload" href="assets/js/core/magic-cursor.js" as="script">
+        <link rel="preload" href="assets/js/helpers/data-attr-helper.js" as="script">
+        <link rel="preload" href="assets/js/helpers/swiper-helper.js" as="script">
+        <link rel="preload" href="assets/js/helpers/splitype-helper.js" as="script">
+        <link rel="preload" href="assets/js/helpers/anime-helper.js" as="script">
+        <link rel="preload" href="assets/js/helpers/typed-helper.js" as="script">
+        <link rel="preload" href="assets/js/helpers/tilt-helper.js" as="script">
+        <link rel="preload" href="assets/js/core/marquee.js" as="script">
+        <link rel="preload" href="assets/js/uikit-components-bs.js" as="script">
+        <link rel="preload" href="assets/js/form.js" as="script">
+        <link rel="preload" href="assets/js/app.js" as="script">
+
+        <!-- app head for bootstrap core -->
+        <script src="assets/js/app-head-bs.js"></script>
+
+        <!-- include uni-core components -->
+        <link rel="stylesheet" href="assets/js/uni-core/css/uni-core.min.css">
+
+        <!-- include styles -->
+        <link rel="stylesheet" href="assets/css/unicons.min.css">
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="assets/css/prettify.min.css">
+        <link rel="stylesheet" href="assets/css/magic-cursor.min.css">
+
+        <!-- include main style -->
+        <link rel="stylesheet" href="assets/scss/theme/theme-three.scss">
+
+        <!-- include scripts -->
+        <script src="assets/js/uni-core/js/uni-core-bundle.min.js"></script>
+    </head>
+    <body class="uni-body panel uni-body panel bg-white text-gray-900 dark:bg-black dark:text-gray-200 overflow-x-hidden disable-cursor">
+
+        <!-- DSG Cookie-Hinweis -->
+        <div id="uc-gdpr-notification" class="uc-gdpr-notification uc-notification min-w-1/2 uc-notification-bottom-left lg:m-2">
+            <div class="uc-notification-message vstack lg:hstack items-end gap-2 lg:gap-4 lg:p-3 bg-white text-dark border rounded-1-5 min-w-1/2">
+                <a id="uc-close-gdpr-notification" class="uc-notification-close text-dark" data-uc-close></a>
+                <div class="vstack">
+                    <h2 class="h5 ft-primary fw-bold -ls-1 m-0 text-dark">Datenschutz</h2>
+                    <p class="fs-6 mt-1">Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Mit der Nutzung unserer Website akzeptieren Sie unsere <a href="impressum.html" class="uc-link text-underline">Datenschutzerklärung</a>.</p>
+                </div>
+                <button class="btn btn-sm btn-primary px-2" id="uc-accept-gdpr">Akzeptieren</button>
+            </div>
+        </div>
+
+        <!-- Menu panel (mobile) -->
+        <div id="uc-menu-panel" data-uc-offcanvas="overlay: true;">
+            <div class="uc-offcanvas-bar bg-white text-dark dark:bg-gray-900 dark:text-white">
+                <header class="uc-offcanvas-header hstack justify-between items-center pb-2 bg-white dark:bg-gray-900">
+                    <div class="uc-logo">
+                        <a href="index.html" class="h5 text-none text-gray-900 dark:text-white">
+                            code-agenten.ch
+                        </a>
+                    </div>
+                    <button class="uc-offcanvas-close rtl:end-auto rtl:start-0 m-1 mt-2 icon-3 btn border-0 dark:text-white dark:text-opacity-50 hover:text-primary hover:rotate-90 duration-150 transition-all" type="button">
+                        <i class="unicon-close"></i>
+                    </button>
+                </header>
+                <div class="panel">
+                    <ul class="nav-y gap-narrow fw-medium fs-6" data-uc-nav>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                    </ul>
+                    <div class="py-2 hstack gap-2 mt-4 bg-white dark:bg-gray-900" data-uc-sticky="position: bottom">
+                        <div class="vstack gap-1">
+                            <span class="fs-7 opacity-60">Theme:</span>
+                            <div class="darkmode-trigger" data-darkmode-switch="">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider fs-5"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Actions Sticky -->
+        <div class="backtotop-wrap position-fixed bottom-0 end-0 z-99 m-2 vstack">
+            <div class="darkmode-trigger cstack w-40px h-40px rounded-circle text-none bg-gray-100 dark:bg-gray-700 dark:text-white" data-darkmode-toggle="">
+                <label class="switch">
+                    <span class="sr-only">Dark mode toggle</span>
+                    <input type="checkbox">
+                    <span class="slider fs-5"></span>
+                </label>
+            </div>
+            <a class="btn btn-sm bg-primary text-white w-40px h-40px rounded-circle" href="to_top" data-uc-backtotop>
+                <i class="icon-2 unicon-chevron-up"></i>
+            </a>
+        </div>
+
+        <!-- Header -->
+        <header class="uc-header header-seven uc-navbar-sticky-wrap z-999" data-uc-sticky="start: 100vh; show-on-up: true; animation: uc-animation-slide-top; sel-target: .uc-navbar-container; cls-active: uc-navbar-sticky; cls-inactive: uc-navbar-transparent; end: !*;">
+            <nav class="uc-navbar-container uc-navbar-float ft-tertiary z-1" data-anime="translateY: [-40, 0]; opacity: [0, 1]; easing: easeOutExpo; duration: 750; delay: 0;">
+                <div class="uc-navbar-main" style="--uc-nav-height: 64px">
+                    <div class="container">
+                        <div class="uc-navbar min-h-64px text-gray-900 dark:text-white" data-uc-navbar="animation: uc-animation-slide-top-small; duration: 150;">
+                            <div class="uc-navbar-left">
+                                <div class="uc-logo">
+                                    <a class="panel text-none h5 fw-bold" href="index.html">
+                                        code-agenten.ch
+                                    </a>
+                                </div>
+                                <ul class="uc-navbar-nav gap-3 d-none lg:d-flex ltr:ms-2 rtl:me-2">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="kontakt.html">Kontakt</a></li>
+                                    <li><a href="impressum.html">Impressum</a></li>
+                                </ul>
+                            </div>
+                            <div class="uc-navbar-right">
+                                <a class="btn btn-sm btn-primary text-tertiary dark:bg-tertiary dark:text-primary dark:hover:bg-tertiary fw-bold rounded-pill lg:px-2 text-none hover:contrast-shadow d-none lg:d-inline-flex" href="kontakt.html">Demo anfordern</a>
+                                <a class="d-block lg:d-none" href="#uc-menu-panel" data-uc-navbar-toggle-icon data-uc-toggle></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Wrapper start -->
+        <div id="wrapper" class="wrap">
+
+            <!-- Section 1: Hero -->
+            <div id="hero_header" class="hero-header hero-seven-scene section panel overflow-hidden">
+                <div class="position-absolute top-0 start-0 end-0 h-screen bg-tertiary-300 dark:bg-primary-700"></div>
+                <div class="position-absolute top-0 start-0 end-0 h-screen bg-gradient-to-b from-transparent via-transparent to-white dark:to-black"></div>
+                <div class="section-outer panel pb-6 sm:pb-8 pt-9 xl:pt-10 xl:pb-9">
+                    <div class="d-none lg:d-block" data-anime="targets: >*; scale: [0, 1]; opacity: [0, 1]; easing: easeOutCubic; duration: 750; delay: anime.stagger(150, {start: 500});">
+                        <img src="assets/images/vectors/marketing.svg" alt="Icon" class="d-inline-block position-absolute w-72px dark:d-none" style="top: 15%; left: 10%">
+                        <img src="assets/images/vectors/charts-pc.svg" alt="Icon" class="d-inline-block position-absolute w-72px dark:d-none" style="top: 15%; right: 10%">
+                        <img src="assets/images/vectors/group.svg" alt="Icon" class="d-inline-block position-absolute w-64px dark:d-none" style="top: 35%; right: -1%; transform: rotate(45deg)">
+                        <img src="assets/images/vectors/idea.svg" alt="Icon" class="d-inline-block position-absolute w-48px dark:d-none" style="top: 40%; left: 15%">
+                        <img src="assets/images/vectors/group.svg" alt="Icon" class="d-inline-block position-absolute w-64px dark:d-none" style="top: 30%; left: -1%">
+                        <img src="assets/images/vectors/marketing-dark.svg" alt="Icon" class="d-inline-block position-absolute w-72px d-none dark:d-block" style="top: 15%; left: 10%">
+                        <img src="assets/images/vectors/charts-pc-dark.svg" alt="Icon" class="d-inline-block position-absolute w-72px d-none dark:d-block" style="top: 15%; right: 10%">
+                        <img src="assets/images/vectors/group-dark.svg" alt="Icon" class="d-inline-block position-absolute w-64px d-none dark:d-block" style="top: 35%; right: -1%; transform: rotate(45deg)">
+                        <img src="assets/images/vectors/idea-dark.svg" alt="Icon" class="d-inline-block position-absolute w-48px d-none dark:d-block" style="top: 40%; left: 15%">
+                        <img src="assets/images/vectors/group-dark.svg" alt="Icon" class="d-inline-block position-absolute w-64px d-none dark:d-block" style="top: 30%; left: -1%">
+                    </div>
+                    <div class="container max-w-xl">
+                        <div class="section-inner panel">
+                            <div class="row child-cols-12 justify-center items-center g-8">
+                                <div class="lg:col-8">
+                                    <div class="panel vstack items-center gap-2 px-2 text-center" data-anime="targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
+                                        <span class="fs-7 fw-bold py-narrow px-2 border rounded-pill text-primary dark:text-tertiary">100% Swiss Hosted &amp; DSG-konform</span>
+                                        <h1 class="h3 sm:h2 md:h1 lg:display-6 lh-lg mb-1 xl:mb-2 mt-2">
+                                            Software-Engineering in Lichtgeschwindigkeit für
+                                            <span class="px-1 bg-primary text-tertiary dark:bg-tertiary dark:text-primary" data-uc-typed="typeSpeed: 80; backSpeed: 50; backDelay: 1500; loop: true;">
+                                                <span>Python</span>
+                                                <span>Java</span>
+                                                <span>TypeScript</span>
+                                                <span>viele andere Sprachen</span>
+                                            </span>
+                                        </h1>
+                                        <p class="fs-6 xl:fs-3 xl:px-6">Maximieren Sie den Output Ihres Entwicklungs-Teams mit sicheren AI-Agents. Höchste Effizienz trifft auf Schweizer Datenschutz-Standards. Gehostet auf Schweizer Infrastruktur für maximale Sicherheit.</p>
+                                        <div class="vstack md:hstack justify-center gap-2 mt-3">
+                                            <a href="kontakt.html" class="btn btn-md xl:btn-lg btn-primary text-white px-3 lg:px-5 fw-bold contrast-shadow-sm hover:contrast-shadow">
+                                                <span>Jetzt kostenlose Demo anfordern</span>
+                                            </a>
+                                        </div>
+                                        <div class="panel mt-3 lg:mt-4 min-w-700px text-center">
+                                            <div class="row child-cols-12 lg:child-cols-4 justify-center gx-0">
+                                                <div>
+                                                    <div class="hstack justify-center gap-1">
+                                                        <span class="icon mb-narrow">
+                                                            <img class="w-24px dark:d-none" src="assets/images/custom-icons/icon-08.svg" alt="icon">
+                                                            <img class="w-24px d-none dark:d-block" src="assets/images/custom-icons/dark-icon-08.svg" alt="icon">
+                                                        </span>
+                                                        <span class="fs-7 fw-medium mb-narrow text-inherit">DSG-konform (nDSG)</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="hstack justify-center gap-1">
+                                                        <span class="icon mb-narrow">
+                                                            <img class="w-24px dark:d-none" src="assets/images/custom-icons/icon-07.svg" alt="icon">
+                                                            <img class="w-24px d-none dark:d-block" src="assets/images/custom-icons/dark-icon-07.svg" alt="icon">
+                                                        </span>
+                                                        <span class="fs-7 fw-medium mb-narrow text-inherit">Schweizer Server</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="hstack justify-center gap-1">
+                                                        <span class="icon mb-narrow">
+                                                            <img class="w-24px dark:d-none" src="assets/images/custom-icons/icon-04.svg" alt="icon">
+                                                            <img class="w-24px d-none dark:d-block" src="assets/images/custom-icons/dark-icon-04.svg" alt="icon">
+                                                        </span>
+                                                        <span class="fs-7 fw-medium mb-narrow text-inherit">Inkl. Experten-Coaching</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uc-video-scene" data-anime="scale: [1.2, 1]; opacity: [0, 1]; easing: easeOutCubic; duration: 750; delay: 500;">
+                                    <div class="panel max-w-1000px mx-auto mt-2 rounded lg:rounded-1-5 xl:rounded-2 border border-dark contrast-shadow-lg overflow-hidden" data-anime="onscroll: .hero-header; onscroll-trigger: 0.5; translateY: [-80, 0]; scale: [0.8, 1]; easing: linear;">
+                                        <!-- Placeholder for hero image -->
+                                        <img src="assets/images/media/lexend-home-7.png" alt="code-agenten.ch Platform Preview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Sprachen-Reel -->
+            <div id="companies_sponsores" class="companies-sponsores section panel overflow-hidden">
+                <div class="section-outer panel">
+                    <div class="container sm:max-w-lg xl:max-w-xl">
+                        <div class="section-inner panel">
+                            <div class="brands panel vstack gap-3 sm:gap-4 xl:gap-5 text-center" data-anime="onview: -200; translateY: [-16, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: 350;">
+                                <p class="fs-6">Unterstützt alle bekannten Programmiersprachen und Frameworks</p>
+                                <div class="panel">
+                                    <div class="element-brands text-gray-900 dark:text-white mask-x">
+                                        <div class="swiper" data-uc-swiper="items: 2.25; center: true; center-bounds: true; autoplay: 7000; loop: true; speed: 7000; autoplay-delay: -1; allowTouchMove: false; disableOnInteraction: true;" data-uc-swiper-s="items: 4; center: false; center-bounds: false;" data-uc-swiper-m="items: 6; gap: 100;">
+                                            <div class="swiper-wrapper items-center ease-linear">
+                                                <div class="brand-item swiper-slide text-center">
+                                                    <span class="brand-item-image h-40px xl:h-48px fw-bold fs-5">Python</span>
+                                                </div>
+                                                <div class="brand-item swiper-slide text-center">
+                                                    <span class="brand-item-image h-40px xl:h-48px fw-bold fs-5">Java</span>
+                                                </div>
+                                                <div class="brand-item swiper-slide text-center">
+                                                    <span class="brand-item-image h-40px xl:h-48px fw-bold fs-5">TypeScript</span>
+                                                </div>
+                                                <div class="brand-item swiper-slide text-center">
+                                                    <span class="brand-item-image h-40px xl:h-48px fw-bold fs-5">React</span>
+                                                </div>
+                                                <div class="brand-item swiper-slide text-center">
+                                                    <span class="brand-item-image h-40px xl:h-48px fw-bold fs-5">Angular</span>
+                                                </div>
+                                                <div class="brand-item swiper-slide text-center">
+                                                    <span class="brand-item-image h-40px xl:h-48px fw-bold fs-5">Vue</span>
+                                                </div>
+                                                <div class="brand-item swiper-slide text-center">
+                                                    <span class="brand-item-image h-40px xl:h-48px fw-bold fs-5">Spring Boot</span>
+                                                </div>
+                                                <div class="brand-item swiper-slide text-center">
+                                                    <span class="brand-item-image h-40px xl:h-48px fw-bold fs-5">Django</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Benefits / Key Features -->
+            <div id="key_features" class="key-features section panel overflow-hidden uc-dark lg:px-6">
+                <div class="section-outer panel py-4 md:py-6 xl:py-10 bg-secondary dark:bg-primary-700 dark:text-white dark:text-opacity-60 rounded-2 lg:rounded-4" data-anime="onscroll: .key-features; onscroll-trigger: 1; onscoll-duration: 150%; translateY: [-80, 0]; scale: [0.85, 1]; opacity: [0.85, 1]; easing: linear;">
+                    <div class="container sm:max-w-lg">
+                        <div class="section-inner panel">
+                            <div class="panel vstack items-center gap-2 xl:gap-3 mb-4 sm:mb-6 lg:mb-8 sm:max-w-600px lg:max-w-700px xl:max-w-800px mx-auto text-center" data-anime="onview: -200; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
+                                <span class="fs-7 fw-medium py-narrow px-2 border rounded-pill text-primary dark:text-tertiary">Vorteile</span>
+                                <h2 class="h3 lg:h2 m-0">Täglich von Experten genutzt, für <span class="px-1 bg-tertiary text-primary">Schweizer Teams</span> optimiert.</h2>
+                                <p class="fs-6 xl:fs-3 xl:px-8">Eine souveräne Plattform, die Innovation beschleunigt und gleichzeitig volle Datenkontrolle garantiert.</p>
+                            </div>
+                            <div class="features-items row child-cols-12 sm:child-cols-6 lg:child-cols-4 g-4 lg:g-6 col-match" data-anime="onview: -200; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 400});">
+                                <div class="order-1 lg:order-0">
+                                    <div class="features-item vstack items-center justify-center text-center gap-4">
+                                        <div class="icon-box cstack w-48px h-48px dark:bg-tertiary rounded">
+                                            <img class="w-24px xl:w-32px text-primary-400 dark:text-tertiary" src="assets/images/custom-icons/icon-01.svg" alt="feature-icon">
+                                        </div>
+                                        <div class="panel">
+                                            <div class="vstack gap-1">
+                                                <h3 class="title h6 m-0">Vibe Coding Workflow</h3>
+                                                <p class="desc fs-6 opacity-60 dark:opacity-90">Verwandeln Sie Ideen per Natural Language direkt in funktionalen Code. Unsere Agents übernehmen Boilerplate, Testing und Dokumentation, damit Sie sich auf die Architektur konzentrieren können.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-0">
+                                    <div class="features-item vstack items-center justify-center text-center gap-4">
+                                        <div class="icon-box cstack w-48px h-48px dark:bg-tertiary rounded">
+                                            <img class="w-24px xl:w-32px text-primary-400 dark:text-tertiary" src="assets/images/custom-icons/icon-02.svg" alt="feature-icon">
+                                        </div>
+                                        <div class="panel">
+                                            <div class="vstack gap-1">
+                                                <h3 class="title h6 m-0">Tiefe Codebase-Integration</h3>
+                                                <p class="desc fs-6 opacity-60 dark:opacity-90">Dank RAG-Technologie versteht die AI Ihre spezifische Software-Architektur und Coding-Standards. Keine generischen Schnipsel, sondern präzise Lösungen für Ihr Projekt.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-2 sm:order-1 lg:order-0">
+                                    <div class="features-item vstack items-center justify-center text-center gap-4">
+                                        <div class="icon-box cstack w-48px h-48px dark:bg-tertiary rounded">
+                                            <img class="w-24px xl:w-32px text-primary-400 dark:text-tertiary" src="assets/images/custom-icons/icon-03.svg" alt="feature-icon">
+                                        </div>
+                                        <div class="panel">
+                                            <div class="vstack gap-1">
+                                                <h3 class="title h6 m-0">Souveräner AI-Stack</h3>
+                                                <p class="desc fs-6 opacity-60 dark:opacity-90">Nutzen Sie Top-Modelle wie Claude 3.5 und GPT-4o über unseren geschützten OpenCode-Wrapper. Gehostet in der Schweiz, ohne Datenabfluss in die US-Cloud.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-1 lg:order-0">
+                                    <div class="features-item vstack items-center justify-center text-center gap-4">
+                                        <div class="icon-box cstack w-48px h-48px dark:bg-tertiary rounded">
+                                            <img class="w-24px xl:w-32px text-primary-400 dark:text-tertiary" src="assets/images/custom-icons/icon-07.svg" alt="feature-icon">
+                                        </div>
+                                        <div class="panel">
+                                            <div class="vstack gap-1">
+                                                <h3 class="title h6 m-0">Zero-Data-Training Garantie</h3>
+                                                <p class="desc fs-6 opacity-60 dark:opacity-90">Wir garantieren, dass Ihr proprietärer Code niemals zum Training globaler KI-Modelle verwendet wird. Ihre IP bleibt zu 100% geschützt.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-3 lg:order-0">
+                                    <div class="features-item vstack items-center justify-center text-center gap-4">
+                                        <div class="icon-box cstack w-48px h-48px dark:bg-tertiary rounded">
+                                            <img class="w-24px xl:w-32px text-primary-400 dark:text-tertiary" src="assets/images/custom-icons/icon-05.svg" alt="feature-icon">
+                                        </div>
+                                        <div class="panel">
+                                            <div class="vstack gap-1">
+                                                <h3 class="title h6 m-0">Vollständige nDSG-Konformität</h3>
+                                                <p class="desc fs-6 opacity-60 dark:opacity-90">Erfüllen Sie mühelos alle Schweizer Compliance-Anforderungen. Optimiert für regulierte Branchen wie Finanzen, Pharma und öffentliche Verwaltung.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-2 lg:order-0">
+                                    <div class="features-item vstack items-center justify-center text-center gap-4">
+                                        <div class="icon-box cstack w-48px h-48px dark:bg-tertiary rounded">
+                                            <img class="w-24px xl:w-32px text-primary-400 dark:text-tertiary" src="assets/images/custom-icons/icon-06.svg" alt="feature-icon">
+                                        </div>
+                                        <div class="panel">
+                                            <div class="vstack gap-1">
+                                                <h3 class="title h6 m-0">Persönliches Expert-Coaching</h3>
+                                                <p class="desc fs-6 opacity-60 dark:opacity-90">Wir liefern nicht nur ein Tool. Unser lokales Team begleitet Sie bei der Einführung und schult Ihre Entwickler für maximale AI-Produktivität.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Full-Width CTA -->
+            <div id="uc_cta" class="uc-cta panel mb-n4 z-1" data-anime="onview: -200; translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500;">
+                <div class="container">
+                    <div class="panel vstack items-center gap-2 p-4 lg:p-6 xl:p-9 bg-gradient-45 from-primary to-primary-800 rounded-2 text-center text-white uc-dark">
+                        <img class="position-absolute text-tertiary d-none lg:d-block" src="assets/images/common/stars.svg" alt="stars" style="bottom: 25%; left: 10%" data-uc-svg>
+                        <img class="position-absolute text-tertiary d-none lg:d-block" src="assets/images/common/star.svg" alt="star" style="top: 25%; right: 10%" data-uc-svg>
+                        <h2 class="h3 xl:display-6 lh-lg m-0 max-w-md mx-auto text-inherit">Sind Sie bereit Ihre <span class="px-1 bg-tertiary text-primary d-block lg:d-inline-block">Software-Entwicklung</span> zu modernisieren?</h2>
+                        <p class="fs-6 sm:fs-5">Starten Sie jetzt mit souveränen AI-Coding Agenten. Wir begleiten Sie von der ersten Demo bis zum vollproduktiven Einsatz in Ihrem Team.</p>
+                        <div class="vstack md:hstack justify-center gap-2 mt-3">
+                            <a href="kontakt.html" class="btn btn-md xl:btn-lg btn-tertiary text-primary px-3 lg:px-5 fw-bold hover:contrast-shadow">Mit uns sprechen</a>
+                            <a href="#key_features" class="btn btn-md xl:btn-lg btn-outline-white px-3 lg:px-5 fw-bold">Features verstehen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Accordion – End-to-End AI Engineering -->
+            <div id="how_it_works" class="how-it-works section panel overflow-hidden rounded-1-5 lg:rounded-2 bg-secondary dark:bg-gray-800 dark:text-white">
+                <div class="section-outer panel">
+                    <div class="container container-full">
+                        <div class="section-inner panel">
+                            <div class="row child-cols-12 col-match g-0">
+                                <div>
+                                    <div class="panel">
+                                        <div class="row child-cols-12 lg:child-cols-6 col-match items-center g-0">
+                                            <div data-anime="onview: -100; translateX: [-48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: 100;">
+                                                <figure class="featured-image m-0 rounded ratio ratio-1x1 overflow-hidden rounded-1-5 lg:rounded-2 lg:rounded-bottom-end-0">
+                                                    <img class="media-cover image" src="assets/images/template/feature-image-03.jpg" alt="AI Engineering Management">
+                                                </figure>
+                                            </div>
+                                            <div data-anime="onview: -100; translateX: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: 200;">
+                                                <div class="panel vstack items-start gap-2 lg:gap-3 p-3 md:p-4 lg:p-6 xl:p-8 xl:px-9 my-2 lg:my-0" data-anime="onview: -100; targets: >*; translateY: [16, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 500});">
+                                                    <h3 class="h3 lg:h2 m-0">End-to-End AI Engineering Management</h3>
+                                                    <p class="fs-6 lg:fs-5">Ob 2 oder 200 Entwickler – unsere Agentic Workflows stärken Ihr Team und beschleunigen jeden Release-Zyklus.</p>
+                                                    <div class="panel w-100 mt-2 lg:mt-4">
+                                                        <ul class="uc-accordion-divider uc-accordion-chevron gap-5" data-uc-accordion="collapsible: false" style="--divider-gap: 40px">
+                                                            <li>
+                                                                <a class="uc-accordion-title h5 lg:h4 m-0">
+                                                                    <span class="hstack gap-1 lg:gap-2">
+                                                                        <span class="cstack w-36px h-36px bg-primary rounded-circle">
+                                                                            <img class="icon icon-1 text-white" src="assets/images/common/icons/zap.svg" alt="feature-icon" data-uc-svg>
+                                                                        </span>
+                                                                        <span>Autonome Coding-Agents</span>
+                                                                    </span>
+                                                                </a>
+                                                                <div class="uc-accordion-content mt-1 lg:mt-2">Übergeben Sie komplexe Jira-Tickets an Ihre AI-Agents. Sie erstellen Code-Vorschläge, korrigieren Bugs und bereiten Pull-Requests vor – vollautomatisch und DSG-konform.</div>
+                                                            </li>
+                                                            <li>
+                                                                <a class="uc-accordion-title h5 lg:h4 m-0">
+                                                                    <span class="hstack gap-1 lg:gap-2">
+                                                                        <span class="cstack w-36px h-36px bg-primary rounded-circle">
+                                                                            <img class="icon icon-1 text-white" src="assets/images/common/icons/target.svg" alt="feature-icon" data-uc-svg>
+                                                                        </span>
+                                                                        <span>Intelligentes Refactoring</span>
+                                                                    </span>
+                                                                </a>
+                                                                <div class="uc-accordion-content mt-1 lg:mt-2">Veralteter Code (Legacy) ist der grösste Bremsklotz. Unsere Tools analysieren technische Schulden und schlagen proaktiv Modernisierungen vor, um die Wartbarkeit zu erhöhen.</div>
+                                                            </li>
+                                                            <li>
+                                                                <a class="uc-accordion-title h5 lg:h4 m-0">
+                                                                    <span class="hstack gap-1 lg:gap-2">
+                                                                        <span class="cstack w-36px h-36px bg-primary rounded-circle">
+                                                                            <img class="icon icon-1 text-white" src="assets/images/common/icons/settings.svg" alt="feature-icon" data-uc-svg>
+                                                                        </span>
+                                                                        <span>Team-Knowledge-Base</span>
+                                                                    </span>
+                                                                </a>
+                                                                <div class="uc-accordion-content mt-1 lg:mt-2">Verwandeln Sie Ihre Dokumentation in eine lebendige Wissensquelle. Neue Teammitglieder werden durch AI-onboarding in Rekordzeit produktiv, da die KI Fragen zur gesamten Code-Architektur beantwortet.</div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="panel">
+                                        <div class="row child-cols-12 lg:child-cols-6 col-match items-center g-0">
+                                            <div class="lg:order-2" data-anime="onview: -100; translateX: [-48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: 300;">
+                                                <figure class="featured-image m-0 rounded ratio ratio-1x1 overflow-hidden rounded-1-5 lg:rounded-2 lg:rounded-top-start-0">
+                                                    <img class="media-cover image" src="assets/images/template/feature-image-01.jpg" alt="Produktivitäts-Potenzial">
+                                                </figure>
+                                            </div>
+                                            <div class="order-1" data-anime="onview: -100; translateX: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: 400;">
+                                                <div class="panel vstack items-start gap-2 lg:gap-3 p-3 md:p-4 lg:p-6 xl:p-8 xl:px-9 my-2 lg:my-0" data-anime="onview: -100; targets: >*; translateY: [16, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 500});">
+                                                    <h3 class="h3 lg:h2 m-0">Produktivitäts-Potenzial ausschöpfen – Jetzt oder nie.</h3>
+                                                    <p class="fs-6 lg:fs-5">Unsere intuitive Plattform reduziert die Kosten pro Feature massiv. Behalten Sie die volle Kontrolle über Ihre Ressourcen und steigern Sie die Qualität Ihrer Software-Releases nachhaltig.</p>
+                                                    <div class="panel mt-2 lg:mt-4">
+                                                        <div class="row child-cols-12 lg:child-cols-6 g-4">
+                                                            <div>
+                                                                <div class="panel vstack items-start gap-2">
+                                                                    <div class="cstack min-w-48px min-h-48px bg-primary rounded-circle">
+                                                                        <img class="icon icon-1 text-white" src="assets/images/common/icons/database.svg" alt="feature-icon" data-uc-svg>
+                                                                    </div>
+                                                                    <div class="vstack gap-1 lg:gap-2">
+                                                                        <h5 class="h5 lg:h4 m-0">AI verantwortungsvoll nutzen</h5>
+                                                                        <p class="fs-6">Wir bieten eine einheitliche Plattform, die Innovation fördert, ohne die Sicherheit zu kompromittieren. Hosting ausschliesslich in zertifizierten Schweizer Rechenzentren.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="panel vstack items-start gap-2">
+                                                                    <div class="cstack min-w-48px min-h-48px bg-primary rounded-circle">
+                                                                        <img class="icon icon-1 text-white" src="assets/images/common/icons/line-chart.svg" alt="feature-icon" data-uc-svg>
+                                                                    </div>
+                                                                    <div class="vstack gap-1 lg:gap-2">
+                                                                        <h5 class="h5 lg:h4 m-0">Fortschritt mühelos tracken</h5>
+                                                                        <p class="fs-6">Messen Sie die Effizienzsteigerung Ihres Teams durch KI-gestützte Analysen. Optimieren Sie Ihre Workflows basierend auf echten Daten statt auf Bauchgefühl.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: We're Hiring -->
+            <div id="team_members" class="team-members section panel overflow-hidden">
+                <div class="section-outer panel py-4 md:py-6 xl:py-9">
+                    <div class="container sm:max-w-lg xl:max-w-xl">
+                        <div class="section-inner panel">
+                            <div class="vstack items-center gap-2 lg:gap-3 max-w-450px mx-auto text-center" data-anime="onview: -100; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
+                                <h2 class="h4 sm:h3 m-0">Wir suchen Verstärkung</h2>
+                                <p class="fs-6 sm:fs-5 lg:fs-4 text-dark dark:text-white text-opacity-70">Wir suchen Leute, die unsere Vision teilen. Sie sind anpassungsfähig, motiviert und freundlich?</p>
+                                <a class="btn btn-md rounded-default bg-white dark:bg-gray-700 dark:text-white border-gray-900 dark:border-white border-opacity-20 hover:border-opacity-40 shadow-xs mt-1" href="#">
+                                    <span>Bewerbung einreichen</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Wrapper end -->
+
+        <!-- Footer -->
+        <footer id="uc-footer" class="uc-footer panel overflow-hidden ft-tertiary">
+            <div class="footer-outer py-4 lg:py-6 xl:py-10 bg-gradient-to-t from-tertiary-200 dark:from-primary-700 to-primary-25 dark:to-gray-900 dark:text-white">
+                <div class="uc-footer-content">
+                    <div class="container">
+                        <div class="uc-footer-inner vstack gap-4 lg:gap-6 xl:gap-8">
+                            <div class="uc-footer-widgets panel">
+                                <div class="row child-cols-6 md:child-cols col-match g-4">
+                                    <div class="col-12 md:col-6">
+                                        <div class="panel vstack items-start gap-3 xl:gap-4 md:max-w-1/2">
+                                            <div>
+                                                <a href="index.html" class="h5 fw-bold text-none text-gray-900 dark:text-white">
+                                                    code-agenten.ch
+                                                </a>
+                                                <p class="lg:fs-5 mt-2 fw-medium">Souveräne AI Coding Agents für Schweizer Unternehmen. Sicher, DSG-konform und mit persönlichem Coaching.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <ul class="nav-y gap-2 fw-bold">
+                                            <li class="h6 fs-8 text-uppercase mb-2 opacity-60">Navigation</li>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="kontakt.html">Kontakt</a></li>
+                                            <li><a href="impressum.html">Impressum</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <ul class="nav-y gap-2 fw-bold">
+                                            <li class="h6 fs-8 text-uppercase mb-2 opacity-60">Rechtliches</li>
+                                            <li><a href="impressum.html">Impressum</a></li>
+                                            <li><a href="impressum.html">Datenschutz</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="uc-footer-bottom panel vstack md:hstack gap-2 justify-between items-center text-center pt-4 lg:pt-6 border-top dark:text-white">
+                                <p>code-agenten.ch &copy; 2025. Alle Rechte vorbehalten.</p>
+                                <ul class="nav-x gap-1">
+                                    <li><a href="impressum.html">Datenschutz</a></li>
+                                    <li class="mx-2 lg:mx-3"><a href="impressum.html">Impressum</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script defer src="assets/js/libs/jquery.min.js"></script>
+        <script defer src="assets/js/libs/bootstrap.min.js"></script>
+        <script defer src="assets/js/libs/anime.min.js"></script>
+        <script defer src="assets/js/libs/swiper-bundle.min.js"></script>
+        <script defer src="assets/js/libs/scrollmagic.min.js"></script>
+        <script defer src="assets/js/libs/typed.min.js"></script>
+        <script defer src="assets/js/libs/tilt.min.js"></script>
+        <script defer src="assets/js/libs/split-type.min.js"></script>
+        <script defer src="assets/js/libs/prettify.min.js"></script>
+        <script defer src="assets/js/libs/gsap.min.js"></script>
+        <script defer src="assets/js/core/magic-cursor.js"></script>
+        <script defer src="assets/js/helpers/data-attr-helper.js"></script>
+        <script defer src="assets/js/helpers/swiper-helper.js"></script>
+        <script defer src="assets/js/helpers/splitype-helper.js"></script>
+        <script defer src="assets/js/helpers/anime-helper.js"></script>
+        <script defer src="assets/js/helpers/typed-helper.js"></script>
+        <script defer src="assets/js/helpers/tilt-helper.js"></script>
+        <script defer src="assets/js/core/marquee.js"></script>
+        <script defer src="assets/js/uikit-components-bs.js"></script>
+        <script defer src="assets/js/form.js"></script>
+        <script defer src="assets/js/app.js"></script>
+
+        <script>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const getSchema = urlParams.get("schema");
+            if (getSchema === "dark") {
+                setDarkMode(1);
+            } else if (getSchema === "light") {
+                setDarkMode(0);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,113 @@
+/* Base */
+html {
+    font-size: 20px;
+    color: #212121;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "zero" on;
+}
+.uk-h1, .uk-h2, .uk-h3, .uk-h4, .uk-h5, .uk-h6, .uk-heading-2xlarge, .uk-heading-large, .uk-heading-medium, .uk-heading-small, .uk-heading-xlarge, h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "zero" on;
+    color: inherit;
+}
+.uni-docs-container a {
+    color: #1976d2;
+    text-decoration: none;
+}
+.uni-docs-container a:hover {
+    color: #135ca5;
+    text-decoration: none;
+}
+.uni-docs-container pre,
+.uni-docs-container samp,
+.uni-docs-container code {
+    font-family: "Operator Mono SSm", Menlo, Monaco, "Courier New", monospace !important;
+    font-size: .75rem;
+}
+pre {
+    border: 0 !important;
+    background: #f8f8f8 !important;
+    padding: 20px !important;
+}
+.typ,
+.atn,
+.dec,
+.var {
+    color: #795da3;
+}
+.str,
+.atv {
+    color: #f0506e;
+}
+.tag {
+    color: #63a35c;
+}
+
+.icon {
+    display: inline-flex;
+    position: relative;
+    top: -1px;
+    margin-right: 2px;
+}
+::selection {
+    background: #ffecb3;
+    color: inherit;
+    text-shadow: none;
+}
+
+/* Menu */
+.uk-subnav>*>:first-child {
+    color: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: unset;
+}
+.uk-nav-default>li>a {
+    color: inherit;
+}
+
+/* Tooltip */
+.tooltip-hint code:hover,
+.tooltip-hint samp:hover {
+    cursor: help;
+}
+.uk-table-divider>:first-child>tr:not(:first-child), .uk-table-divider>:not(:first-child)>tr, .uk-table-divider>tr:not(:first-child) {
+    border-color: rgb(145 145 145 / 20%);
+}
+
+/* Scrollspy nav */
+.scrollspy-nav > li.uk-active > a {
+    position: relative;
+    color: #1976d2;
+}
+.scrollspy-nav > li.uk-active > a::before {
+    content: "";
+    border-top: 1px solid;
+    width: 10px;
+    height: 2px;
+    margin-left: -15px;
+    margin-right: 5px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Forms */
+.uk-input, .uk-select:not([multiple]):not([size]) {
+    font-size: .875rem;
+    border-radius: 5px;
+}
+
+/* Changelog */
+#changelog .uk-label {
+    min-width: 80px;
+    text-align: center;
+    border-radius: 2px;
+    margin-right: 20px;
+    line-height: 13px;
+}
