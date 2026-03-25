@@ -94,30 +94,6 @@ if (ENABLE_PAGE_PRELOADER) {
     })();
 }
 
-// GPDR popup
-document.addEventListener('DOMContentLoaded', function() {
-    const gdprNotification = document.getElementById('uc-gdpr-notification');
-    const gdprAccepted = localStorage.getItem('gdprAccepted');
-
-    // Show the GDPR notification if it has not been accepted
-    if (!gdprAccepted) {
-        setTimeout(function() {
-            gdprNotification.classList.add('show');
-        }, 5000); // 5000 milliseconds = 5 seconds
-    }
-
-    // Set event listener for the accept button
-    document.getElementById('uc-accept-gdpr').addEventListener('click', function() {
-        gdprNotification.classList.remove('show');
-        // Set the localStorage item to indicate GDPR has been accepted
-        localStorage.setItem('gdprAccepted', 'true');
-    });
-
-    // Set event listener for the close button
-    document.getElementById('uc-close-gdpr-notification').addEventListener('click', function() {
-        gdprNotification.classList.remove('show');
-    });
-});
 
 // Clients area toggle
 document.addEventListener('DOMContentLoaded', function() {

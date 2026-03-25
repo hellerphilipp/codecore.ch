@@ -427,16 +427,3 @@ pre.prettyprint {
 .hide-scrollbar::-webkit-scrollbar {
     display: none;   
 }
-
-// GDPR
-.uc-gdpr-notification {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(8px);
-    transition: all 250ms ease;
-}
-.uc-gdpr-notification.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
