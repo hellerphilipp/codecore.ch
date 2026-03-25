@@ -33,7 +33,12 @@ Marketing website for **code-agenten.ch** — a sovereign enterprise AI coding p
 - CSS framework: Bootstrap with custom SCSS themes
 - JS: jQuery, Anime.js, Swiper, ScrollMagic, Typed.js, GSAP
 - Component system: uni-core (custom UIKit-like components with `data-uc-*` attributes)
-- SCSS compilation via Vite
+- SCSS is precompiled to CSS via `just css` (uses Dart Sass)
+
+## Build
+- After any SCSS changes, run `just css` to recompile the CSS
+- Homepage CSS: `assets/scss/theme/theme-three.scss` → `assets/css/theme-three.css`
+- Subpage CSS: `assets/scss/theme/main.scss` → `assets/css/main.css`
 
 ## Key Conventions
 - Homepage uses `assets/scss/theme/theme-three.scss` (green/teal theme)

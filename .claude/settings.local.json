@@ -11,7 +11,8 @@
       "Bash(cp /Users/pxheller/Development/code-agenten.ch2/template/package.json /Users/pxheller/Development/code-agenten.ch2/site/)",
       "Bash(cp /Users/pxheller/Development/code-agenten.ch2/template/vite.config.js /Users/pxheller/Development/code-agenten.ch2/site/)",
       "Bash(ls /Users/pxheller/Development/code-agenten.ch2/site/assets/css/fonts*)",
-      "Bash(ls /Users/pxheller/Development/code-agenten.ch2/template/src/assets/css/fonts*)"
+      "Bash(ls /Users/pxheller/Development/code-agenten.ch2/template/src/assets/css/fonts*)",
+      "Bash(just css:*)"
     ]
   }
 }
