@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@@title</title>
+        <meta name="description" content="@@description">
+@@if (context.keywords) {        <meta name="keywords" content="@@keywords">
+}        <meta name="theme-color" content="#178d72">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <!-- Open Graph Tags -->
+        <meta property="og:locale" content="de_CH">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="@@ogTitle">
+@@if (context.ogDescription) {        <meta property="og:description" content="@@ogDescription">
+}        <meta property="og:site_name" content="code-agenten.ch">
+
+        <!-- preload head styles -->
+        <link rel="preload" href="assets/css/unicons.min.css" as="style">
+@@if (context.hasSwiper) {        <link rel="preload" href="assets/css/swiper-bundle.min.css" as="style">
+}
+        <!-- preload footer scripts -->
+        <link rel="preload" href="assets/js/libs/jquery.min.js" as="script">
+        <link rel="preload" href="assets/js/libs/scrollmagic.min.js" as="script">
+@@if (context.hasSwiper) {        <link rel="preload" href="assets/js/libs/swiper-bundle.min.js" as="script">
+}        <link rel="preload" href="assets/js/libs/anime.min.js" as="script">
+@@if (context.hasTyped) {        <link rel="preload" href="assets/js/libs/typed.min.js" as="script">
+}        <link rel="preload" href="assets/js/helpers/data-attr-helper.js" as="script">
+@@if (context.hasSwiper) {        <link rel="preload" href="assets/js/helpers/swiper-helper.js" as="script">
+}        <link rel="preload" href="assets/js/helpers/anime-helper.js" as="script">
+@@if (context.hasTyped) {        <link rel="preload" href="assets/js/helpers/typed-helper.js" as="script">
+}        <link rel="preload" href="assets/js/uikit-components-bs.js" as="script">
+        <link rel="preload" href="assets/js/app.js" as="script">
+
+        <!-- app head for bootstrap core -->
+        <script src="assets/js/app-head-bs.js"></script>
+
+        <!-- include uni-core components -->
+        <link rel="stylesheet" href="assets/js/uni-core/css/uni-core.min.css">
+
+        <!-- include styles -->
+        <link rel="stylesheet" href="assets/css/unicons.min.css">
+@@if (context.hasSwiper) {        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+}
+        <!-- include main style -->
+        <link rel="stylesheet" href="assets/css/theme-three.css">
+
+        <!-- include scripts -->
+        <script src="assets/js/uni-core/js/uni-core-bundle.min.js"></script>
+    </head>

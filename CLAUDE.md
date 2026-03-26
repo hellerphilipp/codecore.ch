@@ -13,11 +13,22 @@ Marketing website for **code-agenten.ch** — a sovereign enterprise AI coding p
 ```
 /template/          # Original Lexend template (reference only, do not modify)
 /site/              # Live website files
-  index.html        # Homepage (based on index-7 + index-5 template sections)
-  kontakt.html      # Contact page (based on page-contact template)
-  impressum.html    # Imprint & privacy (based on page-terms template)
+  src/              # HTML source files (edit these, not the root HTML)
+    partials/       # Shared HTML components (@@include directives)
+      _head.html    # <head> section with conditional swiper/typed includes
+      _mobile-menu.html  # Mobile offcanvas navigation
+      _backtotop.html    # Back-to-top + dark mode toggle
+      _navbar.html       # Desktop header/navbar
+      _footer.html       # Footer section
+      _scripts.html      # Footer scripts + schema switcher
+    index.html      # Homepage source
+    kontakt.html    # Contact page source
+    impressum.html  # Imprint page source
+  index.html        # GENERATED — do not edit directly, run `just html`
+  kontakt.html      # GENERATED — do not edit directly, run `just html`
+  impressum.html    # GENERATED — do not edit directly, run `just html`
   favicon.ico
-  package.json      # Build tooling (Vite)
+  package.json      # Build tooling (Vite, Gulp)
   vite.config.js
   gulpfile.js
   assets/
@@ -25,7 +36,7 @@ Marketing website for **code-agenten.ch** — a sovereign enterprise AI coding p
     fonts/          # Web fonts
     images/         # Only images referenced by site pages
     js/             # JS libraries, helpers, uni-core framework
-    scss/           # SCSS source (theme-three for homepage, main for subpages)
+    scss/           # SCSS source (theme-three for all pages)
 ```
 
 ## Template System
@@ -36,15 +47,17 @@ Marketing website for **code-agenten.ch** — a sovereign enterprise AI coding p
 - SCSS is precompiled to CSS via `just css` (uses Dart Sass)
 
 ## Build
+- After any HTML partial/source changes, run `just html` to assemble pages (uses gulp-file-include)
 - After any SCSS changes, run `just css` to recompile the CSS
-- Homepage CSS: `assets/scss/theme/theme-three.scss` → `assets/css/theme-three.css`
-- Subpage CSS: `assets/scss/theme/main.scss` → `assets/css/main.css`
+- All pages use: `assets/scss/theme/theme-three.scss` → `assets/css/theme-three.css`
 
 ## Key Conventions
-- Homepage uses `assets/scss/theme/theme-three.scss` (green/teal theme)
-- Subpages (contact, imprint) use `assets/scss/theme/main.scss`
+- All pages use `assets/scss/theme/theme-three.scss` (teal/blue theme)
+- **Edit HTML in `src/`**, not the root-level generated files
+- Shared components (navbar, footer, etc.) live in `src/partials/` — edit once, applies everywhere
+- Variables are passed via `@@include('./partials/_file.html', { "key": "value" })` syntax
+- Conditionals use `@@if (context.varName) { ... }` (gulp-file-include)
 - Asset paths from HTML files are relative to the page location (pages are at site root, so `assets/...`)
-- All pages share the same navbar, mobile menu, footer, and cookie notice structure
 - Dark mode is supported via `dark:` CSS utility classes
 
 ## Pages Overview
@@ -53,8 +66,9 @@ Marketing website for **code-agenten.ch** — a sovereign enterprise AI coding p
 - **impressum.html**: Breadcrumb → Legal content (imprint + privacy) → Footer
 
 ## When Adding Pages
-1. Reference the original template in `/template/src/main/` for section inspiration
-2. Keep the same head/script structure as existing pages
-3. Use consistent navbar and footer (copy from existing pages)
-4. Add navigation links to all pages' navbar, mobile menu, and footer
-5. Placeholder images from the template are kept intentionally — they will be replaced later
+1. Create the new page in `site/src/` using `@@include` for shared partials
+2. Reference the original template in `/template/src/main/` for section inspiration
+3. Use the same `@@include` partials as existing pages for head, navbar, footer, scripts
+4. Add navigation links to `src/partials/_mobile-menu.html`, `_navbar.html`, and `_footer.html`
+5. Run `just html` to assemble the page
+6. Placeholder images from the template are kept intentionally — they will be replaced later

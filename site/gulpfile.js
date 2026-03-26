@@ -8,6 +8,7 @@ const imagemin = require('gulp-imagemin');
 const rename = require('gulp-rename');
 const purgecss = require('gulp-purgecss');
 const path = require('path');
+const fileinclude = require('gulp-file-include');
 
 // Will not remove SVG ViewBox when image optimization process
 const imageminOptions = [
@@ -67,6 +68,16 @@ gulp.task('html', () => {
         SRC_FOLDER + '/**/*.html',
     ], { base: SRC_FOLDER }))
         .pipe(gulp.dest('dist'));
+});
+
+// Gulp task to assemble HTML from src/ partials into site root
+gulp.task('assemble', () => {
+    return gulp.src('src/*.html')
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: './src/'
+        }))
+        .pipe(gulp.dest('.'));
 });
 
 // here you can add required css classes manually

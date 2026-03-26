@@ -1,0 +1,26 @@
+        <!-- Scripts -->
+        <script defer src="assets/js/libs/jquery.min.js"></script>
+        <script defer src="assets/js/libs/bootstrap.min.js"></script>
+        <script defer src="assets/js/libs/anime.min.js"></script>
+@@if (context.hasSwiper) {        <script defer src="assets/js/libs/swiper-bundle.min.js"></script>
+}        <script defer src="assets/js/libs/scrollmagic.min.js"></script>
+@@if (context.hasTyped) {        <script defer src="assets/js/libs/typed.min.js"></script>
+}        <script defer src="assets/js/helpers/data-attr-helper.js"></script>
+@@if (context.hasSwiper) {        <script defer src="assets/js/helpers/swiper-helper.js"></script>
+}        <script defer src="assets/js/helpers/anime-helper.js"></script>
+@@if (context.hasTyped) {        <script defer src="assets/js/helpers/typed-helper.js"></script>
+}        <script defer src="assets/js/uikit-components-bs.js"></script>
+        <script defer src="assets/js/app.js"></script>
+
+        <script>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const getSchema = urlParams.get("schema");
+            if (getSchema === "dark") {
+                setDarkMode(1);
+            } else if (getSchema === "light") {
+                setDarkMode(0);
+            }
+        </script>
+    </body>
+</html>

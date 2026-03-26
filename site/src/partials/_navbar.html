@@ -1,0 +1,30 @@
+        <!-- Header -->
+@@if (context.headerClass) {        <header class="uc-header header-seven uc-navbar-sticky-wrap z-999" data-uc-sticky="start: 100vh; show-on-up: true; animation: uc-animation-slide-top; sel-target: .uc-navbar-container; cls-active: uc-navbar-sticky; cls-inactive: uc-navbar-transparent; end: !*;">
+            <nav class="uc-navbar-container uc-navbar-float ft-tertiary z-1" data-anime="translateY: [-40, 0]; opacity: [0, 1]; easing: easeOutExpo; duration: 750; delay: 0;">
+}@@if (!context.headerClass) {        <header class="uc-header uc-navbar-sticky-wrap z-999" data-uc-sticky="show-on-up: true; animation: uc-animation-slide-top; sel-target: .uc-navbar-container; cls-active: uc-navbar-sticky; cls-inactive: uc-navbar-transparent;">
+            <nav class="uc-navbar-container ft-tertiary z-1" data-anime="translateY: [-40, 0]; opacity: [0, 1]; easing: easeOutExpo; duration: 750; delay: 0;">
+}                <div class="uc-navbar-main" style="--uc-nav-height: 64px">
+                    <div class="container">
+                        <div class="uc-navbar min-h-64px text-gray-900 dark:text-white" data-uc-navbar="animation: uc-animation-slide-top-small; duration: 150;">
+                            <div class="uc-navbar-left">
+                                <div class="uc-logo">
+                                    <a class="panel text-none h5 fw-bold" href="index.html">
+                                        code-agenten.ch
+                                    </a>
+                                </div>
+                                <ul class="uc-navbar-nav gap-3 d-none lg:d-flex ltr:ms-2 rtl:me-2">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="kontakt.html">Kontakt</a></li>
+                                    <li><a href="impressum.html">Impressum</a></li>
+                                </ul>
+                            </div>
+                            <div class="uc-navbar-right">
+@@if (context.headerClass) {                                <a class="btn btn-sm btn-primary text-white dark:bg-tertiary dark:text-white dark:hover:bg-tertiary fw-bold rounded-pill lg:px-2 text-none hover:contrast-shadow d-none lg:d-inline-flex" href="kontakt.html">Demo anfordern</a>
+}@@if (!context.headerClass) {                                <a class="btn btn-sm btn-primary text-white fw-bold rounded-pill lg:px-2 text-none hover:contrast-shadow d-none lg:d-inline-flex" href="kontakt.html">Demo anfordern</a>
+}                                <a class="d-block lg:d-none" href="#uc-menu-panel" data-uc-navbar-toggle-icon data-uc-toggle></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
