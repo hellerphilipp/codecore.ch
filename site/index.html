@@ -7,6 +7,7 @@
         <meta name="description" content="Souveräne AI Coding Agents für Schweizer Unternehmen. DSG-konform, gehostet in der Schweiz. Maximieren Sie den Output Ihres Entwicklungs-Teams.">
         <meta name="keywords" content="AI Coding, Vibe Coding, Schweiz, DSG-konform, nDSG, Coding Agents, OpenCode, Claude, GPT-4o, Enterprise">
         <meta name="theme-color" content="#178d72">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
 
         <!-- Open Graph Tags -->
         <meta property="og:locale" content="de_CH">
@@ -30,7 +31,6 @@
         <link rel="preload" href="assets/js/helpers/anime-helper.js" as="script">
         <link rel="preload" href="assets/js/helpers/typed-helper.js" as="script">
         <link rel="preload" href="assets/js/uikit-components-bs.js" as="script">
-        <link rel="preload" href="assets/js/form.js" as="script">
         <link rel="preload" href="assets/js/app.js" as="script">
 
         <!-- app head for bootstrap core -->
@@ -49,7 +49,7 @@
         <!-- include scripts -->
         <script src="assets/js/uni-core/js/uni-core-bundle.min.js"></script>
     </head>
-    <body class="uni-body panel uni-body panel bg-white text-gray-900 dark:bg-black dark:text-gray-200 overflow-x-hidden disable-cursor">
+    <body class="uni-body panel bg-white text-gray-900 dark:bg-black dark:text-gray-200 overflow-x-hidden">
 
         <!-- Menu panel (mobile) -->
         <div id="uc-menu-panel" data-uc-offcanvas="overlay: true;">
@@ -469,7 +469,7 @@
                             <div class="vstack items-center gap-2 lg:gap-3 max-w-450px mx-auto text-center" data-anime="onview: -100; targets: >*; translateY: [48, 0]; opacity: [0, 1]; easing: easeOutCubic; duration: 500; delay: anime.stagger(100, {start: 200});">
                                 <h2 class="h4 sm:h3 m-0">Wir suchen Verstärkung</h2>
                                 <p class="fs-6 sm:fs-5 lg:fs-4 text-dark dark:text-white text-opacity-70">Wir suchen Leute, die unsere Vision teilen. Sie sind anpassungsfähig, motiviert und freundlich?</p>
-                                <a class="btn btn-md rounded-default bg-white dark:bg-gray-700 dark:text-white border-gray-900 dark:border-white border-opacity-20 hover:border-opacity-40 shadow-xs mt-1" href="#">
+                                <a class="btn btn-md rounded-default bg-white dark:bg-gray-700 dark:text-white border-gray-900 dark:border-white border-opacity-20 hover:border-opacity-40 shadow-xs mt-1" href="kontakt.html">
                                     <span>Bewerbung einreichen</span>
                                 </a>
                             </div>
@@ -484,46 +484,42 @@
 
         <!-- Footer -->
         <footer id="uc-footer" class="uc-footer panel overflow-hidden ft-tertiary">
-            <div class="footer-outer py-4 lg:py-6 xl:py-10 bg-gradient-to-t from-tertiary-200 dark:from-primary-700 to-primary-25 dark:to-gray-900 dark:text-white">
-                <div class="uc-footer-content">
-                    <div class="container">
-                        <div class="uc-footer-inner vstack gap-4 lg:gap-6 xl:gap-8">
-                            <div class="uc-footer-widgets panel">
-                                <div class="row child-cols-6 md:child-cols col-match g-4">
-                                    <div class="col-12 md:col-6">
-                                        <div class="panel vstack items-start gap-3 xl:gap-4 md:max-w-1/2">
-                                            <div>
-                                                <a href="index.html" class="h5 fw-bold text-none text-gray-900 dark:text-white">
-                                                    code-agenten.ch
-                                                </a>
-                                                <p class="lg:fs-5 mt-2 fw-medium">Souveräne AI Coding Agents für Schweizer Unternehmen. Sicher, DSG-konform und mit persönlichem Coaching.</p>
-                                            </div>
+            <div class="footer-outer py-4 lg:py-6 xl:py-9 bg-gradient-to-t from-tertiary-200 dark:from-primary-700 to-primary-25 dark:to-gray-900 dark:text-white">
+                <div class="container max-w-xl">
+                    <div class="footer-inner vstack gap-4 lg:gap-6 xl:gap-8">
+                        <div class="uc-footer-widgets panel">
+                            <div class="row child-cols-6 md:child-cols col-match g-4">
+                                <div class="col-12 lg:col-4">
+                                    <div class="panel vstack items-start gap-4 ltr:md:pe-8 rtl:md:ps-8">
+                                        <div class="vstack gap-2">
+                                            <a href="index.html" class="h5 fw-bold text-none text-gray-900 dark:text-white">
+                                                code-agenten.ch
+                                            </a>
+                                            <p>Souveräne AI Coding Agents für Schweizer Unternehmen. Sicher, DSG-konform und mit persönlichem Coaching.</p>
                                         </div>
                                     </div>
-                                    <div>
-                                        <ul class="nav-y gap-2 fw-bold">
-                                            <li class="h6 fs-8 text-uppercase mb-2 opacity-60">Navigation</li>
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="kontakt.html">Kontakt</a></li>
-                                            <li><a href="impressum.html">Impressum</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <ul class="nav-y gap-2 fw-bold">
-                                            <li class="h6 fs-8 text-uppercase mb-2 opacity-60">Rechtliches</li>
-                                            <li><a href="impressum.html">Impressum</a></li>
-                                            <li><a href="impressum.html">Datenschutz</a></li>
-                                        </ul>
-                                    </div>
+                                </div>
+                                <div>
+                                    <ul class="nav-y gap-1 fw-medium">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="kontakt.html">Kontakt</a></li>
+                                        <li><a href="impressum.html">Impressum</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <ul class="nav-y gap-1 fw-medium">
+                                        <li><a href="impressum.html">Impressum</a></li>
+                                        <li><a href="impressum.html">Datenschutz</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="uc-footer-bottom panel vstack md:hstack gap-2 justify-between items-center text-center pt-4 lg:pt-6 border-top dark:text-white">
-                                <p>code-agenten.ch &copy; 2025. Alle Rechte vorbehalten.</p>
-                                <ul class="nav-x gap-1">
-                                    <li><a href="impressum.html">Datenschutz</a></li>
-                                    <li class="mx-2 lg:mx-3"><a href="impressum.html">Impressum</a></li>
-                                </ul>
-                            </div>
+                        </div>
+                        <div class="uc-footer-bottom panel vstack lg:hstack gap-4 justify-center lg:justify-between pt-4 lg:pt-6 border-top dark:text-white">
+                            <p class="opacity-60">code-agenten.ch &copy; 2025. Alle Rechte vorbehalten.</p>
+                            <ul class="nav-x gap-2 fw-medium">
+                                <li><a href="impressum.html">Datenschutz</a></li>
+                                <li><a href="impressum.html">Impressum</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -542,7 +538,6 @@
         <script defer src="assets/js/helpers/anime-helper.js"></script>
         <script defer src="assets/js/helpers/typed-helper.js"></script>
         <script defer src="assets/js/uikit-components-bs.js"></script>
-        <script defer src="assets/js/form.js"></script>
         <script defer src="assets/js/app.js"></script>
 
         <script>
