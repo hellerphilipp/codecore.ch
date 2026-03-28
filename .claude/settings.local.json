@@ -12,7 +12,14 @@
       "Bash(cp /Users/pxheller/Development/code-agenten.ch2/template/vite.config.js /Users/pxheller/Development/code-agenten.ch2/site/)",
       "Bash(ls /Users/pxheller/Development/code-agenten.ch2/site/assets/css/fonts*)",
       "Bash(ls /Users/pxheller/Development/code-agenten.ch2/template/src/assets/css/fonts*)",
-      "Bash(just css:*)"
+      "Bash(just css:*)",
+      "Bash(ls -lhS /Users/pxheller/Development/code-agenten.ch2/site/assets/css/*.css)",
+      "Bash(ls -lhS /Users/pxheller/Development/code-agenten.ch2/site/assets/js/helpers/*.js)",
+      "Bash(ls -lhS /Users/pxheller/Development/code-agenten.ch2/site/assets/js/core/*.js)",
+      "Bash(grep -r \"gsap\\\\|split-type\\\\|tilt\\\\|prettify\" /Users/pxheller/Development/code-agenten.ch2/site/assets/js/*.js)",
+      "Bash(grep:*)",
+      "Bash(du -sh /Users/pxheller/Development/code-agenten.ch2/site/assets/js/libs/*.js)",
+      "Bash(npm --version)"
     ]
   }
 }
