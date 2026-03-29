@@ -20,7 +20,9 @@
       "Bash(grep:*)",
       "Bash(du -sh /Users/pxheller/Development/code-agenten.ch2/site/assets/js/libs/*.js)",
       "Bash(npm --version)",
-      "Bash(just html:*)"
+      "Bash(just html:*)",
+      "Bash(ls:*)",
+      "Bash(just php:*)"
     ]
   }
 }
