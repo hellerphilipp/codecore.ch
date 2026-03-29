@@ -12,5 +12,15 @@ css:
 html:
     cd site && npx gulp assemble
 
-# Full build: setup + compile CSS + assemble HTML
-build: setup css html
+# Copy PHP files from src/ to dist/
+php:
+    cp site/src/*.php site/dist/
+
+# Full build: setup + compile CSS + assemble HTML + copy PHP
+build: setup css html php
+
+# Build and start local PHP dev server with Mailpit for email testing
+# Requires: brew install mailpit
+# Emails appear at http://localhost:8025
+preview-php: build
+    mailpit & php -d sendmail_path='mailpit sendmail' -S localhost:8080 -t site/dist

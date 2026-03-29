@@ -5,8 +5,26 @@
     "ogTitle": "Kontakt – CodeCore",
     "ogDescription": "Kontaktieren Sie uns für eine kostenlose Demo.",
     "hasSwiper": false,
-    "hasTyped": false
+    "hasTyped": false,
+    "hasHtmx": true
 })
+    <style>
+        .htmx-indicator { display: none; }
+        .htmx-request .htmx-indicator { display: inline-block; }
+        .htmx-request .btn-text { visibility: hidden; }
+    </style>
+    <script>
+        document.addEventListener('htmx:beforeSwap', function(e) {
+            if (e.detail.xhr.status >= 400) {
+                e.detail.shouldSwap = true;
+                e.detail.isError = false;
+            }
+        });
+        document.addEventListener('htmx:sendError', function() {
+            document.getElementById('form-result').innerHTML =
+                '<div class="alert alert-danger">Verbindungsfehler. Bitte versuchen Sie es später erneut.</div>';
+        });
+    </script>
     <body class="uni-body panel bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-200 overflow-x-hidden">
 
 @@include('./partials/_mobile-menu.html')
@@ -48,22 +66,38 @@
                                         </div>
                                     </div>
                                     <div class="order-0 lg:order-1">
-                                        <form class="vstack gap-2 p-3 sm:p-6 xl:p-8">
+                                        <form class="vstack gap-2 p-3 sm:p-6 xl:p-8"
+                                              hx-post="processform.php"
+                                              hx-target="#form-result"
+                                              hx-swap="innerHTML"
+                                              hx-indicator="#form-spinner">
                                             <p class="fs-6 text-dark dark:text-white text-opacity-70 mb-2">Haben Sie eine Frage oder möchten Sie eine Demo? Füllen Sie das Formular aus und wir melden uns schnellstmöglich bei Ihnen</p>
+                                            <!-- Honeypot — hidden from humans -->
+                                            <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                                                <input type="text" name="website" tabindex="-1" autocomplete="off">
+                                            </div>
                                             <div class="row child-cols-12 sm:child-cols-6 g-2">
                                                 <div>
-                                                    <input class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white" type="text" placeholder="Vorname" required>
+                                                    <input class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white" type="text" name="vorname" placeholder="Vorname" required>
                                                 </div>
                                                 <div>
-                                                    <input class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white" type="text" placeholder="Nachname" required>
+                                                    <input class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white" type="text" name="nachname" placeholder="Nachname" required>
                                                 </div>
                                             </div>
-                                            <input class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white" type="email" placeholder="E-Mail-Adresse" required>
-                                            <input class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white" type="text" placeholder="Unternehmen">
-                                            <input class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white" type="text" placeholder="Betreff">
-                                            <textarea class="form-control min-h-150px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white" placeholder="Ihre Nachricht..." required></textarea>
-                                            <p class="fs-7 opacity-70 m-0">Mit dem Absenden des Formulars erkläre ich mich mit der Verarbeitung meiner Daten gemäss der <a class="uc-link" href="datenschutz.html">Datenschutzerklärung</a> einverstanden</p>
-                                            <button class="btn btn-primary btn-md text-white mt-2" type="submit">Nachricht senden</button>
+                                            <input class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white" type="email" name="email" placeholder="E-Mail-Adresse" required>
+                                            <input class="form-control h-48px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white" type="text" name="unternehmen" placeholder="Unternehmen">
+                                            <textarea class="form-control min-h-150px w-full bg-white dark:border-white dark:bg-opacity-10 dark:border-opacity-0 dark:text-white" name="nachricht" placeholder="Ihre Nachricht..." required></textarea>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="datenschutz" id="datenschutz" required>
+                                                <label class="form-check-label fs-7 opacity-70" for="datenschutz">
+                                                    Ich erkläre mich mit der Verarbeitung meiner Daten gemäss der <a class="uc-link" href="datenschutz.html">Datenschutzerklärung</a> einverstanden <span class="text-danger">*</span>
+                                                </label>
+                                            </div>
+                                            <button class="btn btn-primary btn-md text-white mt-2 position-relative" type="submit" id="form-spinner">
+                                                <span class="htmx-indicator spinner-border spinner-border-sm position-absolute" role="status"></span>
+                                                <span class="btn-text">Nachricht senden</span>
+                                            </button>
+                                            <div id="form-result"></div>
                                             <p class="text-center fs-7 opacity-70">Oder schreiben Sie uns direkt an <a class="uc-link" href="mailto:info@codecore.ch">info@codecore.ch</a></p>
                                         </form>
                                     </div>
@@ -79,4 +113,4 @@
         <!-- Wrapper end -->
 
 @@include('./partials/_footer.html')
-@@include('./partials/_scripts.html', { "hasSwiper": false, "hasTyped": false })
+@@include('./partials/_scripts.html', { "hasSwiper": false, "hasTyped": false, "hasHtmx": true })
