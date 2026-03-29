@@ -19,7 +19,8 @@
       "Bash(grep -r \"gsap\\\\|split-type\\\\|tilt\\\\|prettify\" /Users/pxheller/Development/code-agenten.ch2/site/assets/js/*.js)",
       "Bash(grep:*)",
       "Bash(du -sh /Users/pxheller/Development/code-agenten.ch2/site/assets/js/libs/*.js)",
-      "Bash(npm --version)"
+      "Bash(npm --version)",
+      "Bash(just html:*)"
     ]
   }
 }
