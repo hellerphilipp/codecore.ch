@@ -80,17 +80,20 @@ gulp.task('assemble', () => {
         .pipe(gulp.dest('./dist'));
 });
 
-// Gulp task to set up dist/ with symlinks and vendor files
+// Gulp task to set up dist/ with copied assets and vendor files
 gulp.task('setup', async () => {
     const fs = require('fs');
     const p = require('path');
     // Create dist/assets/css
     fs.mkdirSync('dist/assets/css', { recursive: true });
-    // Symlinks for static assets
+    // Copy static assets (no symlinks, so dist/ is self-contained)
     for (const dir of ['js', 'fonts', 'images']) {
-        const target = p.resolve('assets', dir);
-        const link = p.join('dist', 'assets', dir);
-        if (!fs.existsSync(link)) fs.symlinkSync(target, link);
+        const src = p.join('assets', dir);
+        const dest = p.join('dist', 'assets', dir);
+        // Remove existing symlink or directory
+        try { fs.rmSync(dest, { recursive: true, force: true }); } catch {}
+
+        fs.cpSync(src, dest, { recursive: true });
     }
     // Copy vendor CSS
     for (const f of fs.readdirSync('assets/css')) {

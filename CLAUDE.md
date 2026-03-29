@@ -29,9 +29,9 @@ Marketing website for **code-agenten.ch** — a sovereign enterprise AI coding p
     *.html          # Assembled HTML pages
     favicon.ico
     assets/css/     # Compiled CSS + vendor CSS
-    assets/js/      # Symlink → ../../assets/js
-    assets/fonts/   # Symlink → ../../assets/fonts
-    assets/images/  # Symlink → ../../assets/images
+    assets/js/      # Copied from ../../assets/js
+    assets/fonts/   # Copied from ../../assets/fonts
+    assets/images/  # Copied from ../../assets/images
   assets/           # Static assets (not built, checked into git)
     css/            # Vendor CSS (unicons, swiper, fonts.css)
     fonts/          # Web fonts
@@ -50,7 +50,7 @@ Marketing website for **code-agenten.ch** — a sovereign enterprise AI coding p
 - SCSS is precompiled to CSS via `just css` (uses Dart Sass)
 
 ## Build
-- First-time setup or after clean: run `just setup` (creates dist/ symlinks and copies vendor CSS)
+- First-time setup or after clean: run `just setup` (copies static assets and vendor CSS into dist/)
 - After any HTML partial/source changes, run `just html` to assemble pages into dist/
 - After any SCSS changes, run `just css` to recompile CSS into dist/assets/css/
 - Full rebuild: `just build` (setup + css + html)
