@@ -22,7 +22,8 @@
       "Bash(npm --version)",
       "Bash(just html:*)",
       "Bash(ls:*)",
-      "Bash(just php:*)"
+      "Bash(just php:*)",
+      "Bash(just build:*)"
     ]
   }
 }
