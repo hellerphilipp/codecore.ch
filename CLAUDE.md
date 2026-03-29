@@ -12,8 +12,8 @@ Marketing website for **code-agenten.ch** — a sovereign enterprise AI coding p
 
 ```
 /template/          # Original Lexend template (reference only, do not modify)
-/site/              # Live website files
-  src/              # HTML source files (edit these, not the root HTML)
+/site/              # Website project root
+  src/              # Source files (edit these)
     partials/       # Shared HTML components (@@include directives)
       _head.html    # <head> section with conditional swiper/typed includes
       _mobile-menu.html  # Mobile offcanvas navigation
@@ -24,19 +24,22 @@ Marketing website for **code-agenten.ch** — a sovereign enterprise AI coding p
     index.html      # Homepage source
     kontakt.html    # Contact page source
     impressum.html  # Imprint page source
-  index.html        # GENERATED — do not edit directly, run `just html`
-  kontakt.html      # GENERATED — do not edit directly, run `just html`
-  impressum.html    # GENERATED — do not edit directly, run `just html`
-  favicon.ico
-  package.json      # Build tooling (Vite, Gulp)
-  vite.config.js
-  gulpfile.js
-  assets/
-    css/            # Precompiled CSS (unicons, swiper, etc.)
+    scss/           # SCSS source (theme-three for all pages)
+  dist/             # GENERATED — do not edit, run `just build`
+    *.html          # Assembled HTML pages
+    favicon.ico
+    assets/css/     # Compiled CSS + vendor CSS
+    assets/js/      # Symlink → ../../assets/js
+    assets/fonts/   # Symlink → ../../assets/fonts
+    assets/images/  # Symlink → ../../assets/images
+  assets/           # Static assets (not built, checked into git)
+    css/            # Vendor CSS (unicons, swiper, fonts.css)
     fonts/          # Web fonts
     images/         # Only images referenced by site pages
     js/             # JS libraries, helpers, uni-core framework
-    scss/           # SCSS source (theme-three for all pages)
+  package.json      # Build tooling (Vite, Gulp)
+  vite.config.js    # Dev server (serves dist/)
+  gulpfile.js
 ```
 
 ## Template System
@@ -47,13 +50,16 @@ Marketing website for **code-agenten.ch** — a sovereign enterprise AI coding p
 - SCSS is precompiled to CSS via `just css` (uses Dart Sass)
 
 ## Build
-- After any HTML partial/source changes, run `just html` to assemble pages (uses gulp-file-include)
-- After any SCSS changes, run `just css` to recompile the CSS
-- All pages use: `assets/scss/theme/theme-three.scss` → `assets/css/theme-three.css`
+- First-time setup or after clean: run `just setup` (creates dist/ symlinks and copies vendor CSS)
+- After any HTML partial/source changes, run `just html` to assemble pages into dist/
+- After any SCSS changes, run `just css` to recompile CSS into dist/assets/css/
+- Full rebuild: `just build` (setup + css + html)
+- All pages use: `src/scss/theme/theme-three.scss` → `dist/assets/css/theme-three.css`
+- Dev server (`npm run dev` from site/) serves from dist/
 
 ## Key Conventions
-- All pages use `assets/scss/theme/theme-three.scss` (teal/blue theme)
-- **Edit HTML in `src/`**, not the root-level generated files
+- All pages use `src/scss/theme/theme-three.scss` (teal/blue theme)
+- **Edit HTML in `src/`**, never edit files in `dist/` (they are generated)
 - Shared components (navbar, footer, etc.) live in `src/partials/` — edit once, applies everywhere
 - Variables are passed via `@@include('./partials/_file.html', { "key": "value" })` syntax
 - Conditionals use `@@if (context.varName) { ... }` (gulp-file-include)

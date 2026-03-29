@@ -70,14 +70,36 @@ gulp.task('html', () => {
         .pipe(gulp.dest('dist'));
 });
 
-// Gulp task to assemble HTML from src/ partials into site root
+// Gulp task to assemble HTML from src/ partials into dist/
 gulp.task('assemble', () => {
     return gulp.src('src/*.html')
         .pipe(fileinclude({
             prefix: '@@',
             basepath: './src/'
         }))
-        .pipe(gulp.dest('.'));
+        .pipe(gulp.dest('./dist'));
+});
+
+// Gulp task to set up dist/ with symlinks and vendor files
+gulp.task('setup', async () => {
+    const fs = require('fs');
+    const p = require('path');
+    // Create dist/assets/css
+    fs.mkdirSync('dist/assets/css', { recursive: true });
+    // Symlinks for static assets
+    for (const dir of ['js', 'fonts', 'images']) {
+        const target = p.resolve('assets', dir);
+        const link = p.join('dist', 'assets', dir);
+        if (!fs.existsSync(link)) fs.symlinkSync(target, link);
+    }
+    // Copy vendor CSS
+    for (const f of fs.readdirSync('assets/css')) {
+        fs.copyFileSync(p.join('assets/css', f), p.join('dist/assets/css', f));
+    }
+    // Copy favicon
+    if (fs.existsSync('favicon.ico')) {
+        fs.copyFileSync('favicon.ico', 'dist/favicon.ico');
+    }
 });
 
 // here you can add required css classes manually
