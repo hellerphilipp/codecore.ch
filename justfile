@@ -24,3 +24,7 @@ build: setup css html php
 # Emails appear at http://localhost:8025
 preview-php: build
     mailpit & php -d sendmail_path='mailpit sendmail' -S localhost:8080 -t site/dist
+
+# Deploy to production
+deploy:
+    rsync -rtv --delete site/dist/ aliwunuz@sl82.web.hostpoint.ch:/home/aliwunuz/www/codecore.ch
