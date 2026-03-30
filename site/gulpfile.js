@@ -99,9 +99,11 @@ gulp.task('setup', async () => {
     for (const f of fs.readdirSync('assets/css')) {
         fs.copyFileSync(p.join('assets/css', f), p.join('dist/assets/css', f));
     }
-    // Copy favicon
-    if (fs.existsSync('favicon.ico')) {
-        fs.copyFileSync('favicon.ico', 'dist/favicon.ico');
+    // Copy favicon and related files
+    for (const f of ['favicon.ico', 'favicon-16x16.png', 'favicon-32x32.png', 'apple-touch-icon.png', 'android-chrome-192x192.png', 'android-chrome-512x512.png', 'site.webmanifest']) {
+        if (fs.existsSync(f)) {
+            fs.copyFileSync(f, p.join('dist', f));
+        }
     }
 });
 
