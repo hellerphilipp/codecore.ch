@@ -14,13 +14,49 @@
         .htmx-request .btn-text { visibility: hidden; }
     </style>
     <script>
+        // CSRF: generate token, set as SameSite=Strict cookie + hidden form field
+        (function() {
+            var arr = new Uint8Array(32);
+            crypto.getRandomValues(arr);
+            var token = Array.from(arr, function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+            // Secure flag omitted on localhost so the cookie works over plain HTTP during dev
+            var isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+            document.cookie = 'csrf_token=' + token + '; SameSite=Strict; path=/' + (isLocalhost ? '' : '; Secure');
+            document.addEventListener('DOMContentLoaded', function() {
+                var form = document.querySelector('form[hx-post]');
+                if (form) {
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'csrf_token';
+                    input.value = token;
+                    form.appendChild(input);
+                }
+            });
+        })();
+
+        // HTMX: allow swap on error responses so we can show error messages
         document.addEventListener('htmx:beforeSwap', function(e) {
             if (e.detail.xhr.status >= 400) {
                 e.detail.shouldSwap = true;
                 e.detail.isError = false;
             }
         });
+
+        // Double-submit prevention: disable on submit, re-enable only on error
+        document.addEventListener('htmx:beforeRequest', function(e) {
+            var btn = e.detail.elt.querySelector('button[type="submit"]');
+            if (btn) btn.disabled = true;
+        });
+        document.addEventListener('htmx:responseError', function(e) {
+            var btn = e.detail.elt.querySelector('button[type="submit"]');
+            if (btn) btn.disabled = false;
+        });
         document.addEventListener('htmx:sendError', function() {
+            var form = document.querySelector('form[hx-post]');
+            if (form) {
+                var btn = form.querySelector('button[type="submit"]');
+                if (btn) btn.disabled = false;
+            }
             document.getElementById('form-result').innerHTML =
                 '<div class="alert alert-danger">Verbindungsfehler. Bitte versuchen Sie es später erneut.</div>';
         });

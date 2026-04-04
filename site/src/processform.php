@@ -5,6 +5,24 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// Origin check — only allow requests from codecore.ch and localhost (dev)
+$origin = $_SERVER['HTTP_ORIGIN'] ?? $_SERVER['HTTP_REFERER'] ?? '';
+$allowedOrigin = preg_match('#^https://([a-z0-9-]+\.)?codecore\.ch#i', $origin)
+              || preg_match('#^https?://localhost(:\d+)?#', $origin);
+if (!$allowedOrigin) {
+    http_response_code(403);
+    exit;
+}
+
+// CSRF check — double-submit cookie must match POST field
+$csrfCookie = $_COOKIE['csrf_token'] ?? '';
+$csrfPost   = $_POST['csrf_token'] ?? '';
+if ($csrfCookie === '' || $csrfPost === '' || !hash_equals($csrfCookie, $csrfPost)) {
+    http_response_code(403);
+    echo '<div class="alert alert-danger">Sicherheitsüberprüfung fehlgeschlagen. Bitte laden Sie die Seite neu und versuchen Sie es erneut.</div>';
+    exit;
+}
+
 // Honeypot check — bots fill this hidden field
 if (!empty($_POST['website'])) {
     http_response_code(200);
@@ -31,6 +49,13 @@ if ($vorname === '' || $nachname === '' || $email === '' || $nachricht === '' ||
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(422);
     echo '<div class="alert alert-danger">Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>';
+    exit;
+}
+
+// Prevent email header injection
+if (preg_match('/[\r\n]/', $email)) {
+    http_response_code(422);
+    echo '<div class="alert alert-danger">Ungültige E-Mail-Adresse.</div>';
     exit;
 }
 
