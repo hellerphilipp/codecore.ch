@@ -1,0 +1,67 @@
+@@include('../partials/_head.html', {
+    "title": "Blog – CodeCore",
+    "description": "Einblicke, Erfahrungen und Updates rund um souveräne KI-Coding-Agenten in der Schweiz",
+    "keywords": "",
+    "ogTitle": "Blog – CodeCore",
+    "ogDescription": "Einblicke, Erfahrungen und Updates rund um souveräne KI-Coding-Agenten in der Schweiz",
+    "hasSwiper": false,
+    "hasTyped": false
+})
+    <body class="uni-body panel bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-200 overflow-x-hidden">
+
+@@include('../partials/_mobile-menu.html')
+@@include('../partials/_backtotop.html')
+@@include('../partials/_navbar.html', { "headerClass": "" })
+
+        <!-- Wrapper start -->
+        <div id="wrapper" class="wrap">
+            <div class="breadcrumbs panel z-1 py-2 bg-secondary dark:bg-gray-100 dark:bg-opacity-5 dark:text-white">
+                <div class="container max-w-xl">
+                    <ul class="breadcrumb nav-x justify-center items-center gap-1 fs-7 m-0 fw-bold">
+                        <li><a href="index.html">Home</a></li>
+                        <li><i class="unicon-chevron-right fw-medium opacity-50"></i></li>
+                        <li><span class="opacity-50">Blog</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section py-4 lg:py-6 xl:py-8">
+                <div class="container max-w-xl">
+                    <div class="page-wrap panel vstack gap-4 lg:gap-6 xl:gap-8">
+                        <header class="page-header panel vstack justify-center gap-2 lg:gap-4 text-center">
+                            <h1 class="h3 lg:h1 m-0">Blog</h1>
+                            <p class="fs-5 opacity-80 m-0 max-w-lg mx-auto">Einblicke, Erfahrungen und Updates rund um souveräne KI-Coding-Agenten in der Schweiz</p>
+                        </header>
+
+                        {{#if hasPosts}}
+                        <section class="panel vstack gap-2">
+                            <p class="fs-7 fw-bold text-uppercase opacity-60 m-0">Themen</p>
+                            <div class="hstack flex-wrap gap-1">
+                                {{{tagFilters}}}
+                            </div>
+                        </section>
+
+                        <section class="panel">
+                            <div class="row child-cols-12 sm:child-cols-6 lg:child-cols-4 col-match g-4">
+                                {{{cards}}}
+                            </div>
+                        </section>
+                        {{/if}}
+
+                        {{#if isEmpty}}
+                        <section class="panel py-6 lg:py-8 text-center">
+                            <div class="vstack gap-3 items-center">
+                                <i class="unicon-edit icon-4 opacity-30"></i>
+                                <h2 class="h4 lg:h3 m-0">Hier entstehen die ersten Beiträge</h2>
+                                <p class="fs-5 opacity-60 m-0 max-w-md">Schauen Sie bald wieder vorbei — wir teilen demnächst Erfahrungen, technische Einblicke und Neuigkeiten rund um CodeCore</p>
+                            </div>
+                        </section>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Wrapper end -->
+
+@@include('../partials/_footer.html')
+@@include('../partials/_scripts.html', { "hasSwiper": false, "hasTyped": false })

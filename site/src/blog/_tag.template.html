@@ -1,0 +1,58 @@
+@@include('../partials/_head.html', {
+    "title": "Thema: {{{tagNameJson}}} – CodeCore Blog",
+    "description": "Beiträge im CodeCore Blog zum Thema {{{tagNameJson}}}",
+    "keywords": "",
+    "ogTitle": "Thema: {{{tagNameJson}}} – CodeCore",
+    "ogDescription": "Beiträge im CodeCore Blog zum Thema {{{tagNameJson}}}",
+    "hasSwiper": false,
+    "hasTyped": false
+})
+    <body class="uni-body panel bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-200 overflow-x-hidden">
+
+@@include('../partials/_mobile-menu.html')
+@@include('../partials/_backtotop.html')
+@@include('../partials/_navbar.html', { "headerClass": "" })
+
+        <!-- Wrapper start -->
+        <div id="wrapper" class="wrap">
+            <div class="breadcrumbs panel z-1 py-2 bg-secondary dark:bg-gray-100 dark:bg-opacity-5 dark:text-white">
+                <div class="container max-w-xl">
+                    <ul class="breadcrumb nav-x justify-center items-center gap-1 fs-7 m-0 fw-bold">
+                        <li><a href="index.html">Home</a></li>
+                        <li><i class="unicon-chevron-right fw-medium opacity-50"></i></li>
+                        <li><a href="{{blogIndexHref}}">Blog</a></li>
+                        <li><i class="unicon-chevron-right fw-medium opacity-50"></i></li>
+                        <li><span class="opacity-50">{{tagName}}</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section py-4 lg:py-6 xl:py-8">
+                <div class="container max-w-xl">
+                    <div class="page-wrap panel vstack gap-4 lg:gap-6 xl:gap-8">
+                        <header class="page-header panel vstack justify-center gap-2 lg:gap-4 text-center">
+                            <h1 class="h3 lg:h1 m-0">Thema: {{tagName}}</h1>
+                            <p class="fs-6 opacity-60 m-0">{{tagCount}} Beiträge</p>
+                            <p class="m-0"><a href="{{blogIndexHref}}" class="text-primary fw-medium">← Zurück zum Blog</a></p>
+                        </header>
+
+                        <section class="panel vstack gap-2">
+                            <p class="fs-7 fw-bold text-uppercase opacity-60 m-0">Themen</p>
+                            <div class="hstack flex-wrap gap-1">
+                                {{{tagFilters}}}
+                            </div>
+                        </section>
+
+                        <section class="panel">
+                            <div class="row child-cols-12 sm:child-cols-6 lg:child-cols-4 col-match g-4">
+                                {{{cards}}}
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Wrapper end -->
+
+@@include('../partials/_footer.html')
+@@include('../partials/_scripts.html', { "hasSwiper": false, "hasTyped": false })

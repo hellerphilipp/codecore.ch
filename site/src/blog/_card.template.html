@@ -1,0 +1,19 @@
+<article class="post-card panel vstack gap-2 h-100">
+    <a href="{{href}}" class="featured-image d-block panel rounded overflow-hidden ratio ratio-4x3">
+        <img src="{{image}}" alt="{{imageAlt}}" loading="lazy" class="w-100 h-100" style="object-fit: cover;">
+    </a>
+    <div class="panel vstack gap-1 pt-2">
+        <div class="hstack gap-1 flex-wrap">
+            {{{tagsHtml}}}
+        </div>
+        <h3 class="h5 lg:h4 m-0 mt-1">
+            <a href="{{href}}" class="text-none text-gray-900 dark:text-white hover:text-primary">{{title}}</a>
+        </h3>
+        <p class="fs-6 opacity-80 m-0">{{excerpt}}</p>
+        <div class="hstack gap-2 fs-7 opacity-60 mt-1">
+            <time datetime="{{dateIso}}">{{dateDisplay}}</time>
+            <span>·</span>
+            <span>von {{authorName}}</span>
+        </div>
+    </div>
+</article>

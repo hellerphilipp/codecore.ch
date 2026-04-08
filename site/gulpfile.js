@@ -9,6 +9,7 @@ const rename = require('gulp-rename');
 const purgecss = require('gulp-purgecss');
 const path = require('path');
 const fileinclude = require('gulp-file-include');
+const { buildBlog } = require('./blog-build');
 
 // Will not remove SVG ViewBox when image optimization process
 const imageminOptions = [
@@ -70,8 +71,8 @@ gulp.task('html', () => {
         .pipe(gulp.dest('dist'));
 });
 
-// Gulp task to assemble HTML from src/ partials into dist/
-gulp.task('assemble', () => {
+// Gulp task to assemble top-level HTML pages from src/ partials into dist/
+gulp.task('assemble:pages', () => {
     return gulp.src('src/*.html')
         .pipe(fileinclude({
             prefix: '@@',
@@ -79,6 +80,12 @@ gulp.task('assemble', () => {
         }))
         .pipe(gulp.dest('./dist'));
 });
+
+// Gulp task to build the Markdown-driven blog into dist/blog/
+gulp.task('blog', () => buildBlog());
+
+// Gulp task to assemble HTML — top-level pages plus the blog
+gulp.task('assemble', gulp.series('assemble:pages', 'blog'));
 
 // Gulp task to set up dist/ with copied assets and vendor files
 gulp.task('setup', async () => {
