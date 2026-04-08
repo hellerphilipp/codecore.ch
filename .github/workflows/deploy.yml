@@ -52,4 +52,7 @@ jobs:
           chmod 644 ~/.ssh/known_hosts
 
       - name: Deploy
-        run: rsync -rtv --delete site/dist/ aliwunuz@sl82.web.hostpoint.ch:/home/aliwunuz/www/codecore.ch
+        # Destination is "." (not the absolute path) because the deploy key is
+        # restricted to `rrsync -wo /home/aliwunuz/www/codecore.ch` on the server,
+        # which chroots the session into that directory.
+        run: rsync -rtv --delete site/dist/ aliwunuz@sl82.web.hostpoint.ch:.
